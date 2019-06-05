@@ -133,9 +133,9 @@ class Bot(GameScreenDisplay):
         """
         best_value = -INFINITY  # Najwieksza wartosc dla maksymalizujacego gracza( w tym przypadku dla bota)
         available_moves = self.check_for_moves()
-        depth = int(1.4*self.size - self.win_condition)  # (depth) decyduje o glebokosci rekurencji algorytmu,
-        best_move = None                                 #  doswiadczalnie wybrane 1.3*siza-win_condition wydaje sie najlepsze dla zoptymalizowania
-                                                         #  czasu oraz poziomu ruchow bota dla duzych wymiarow planszy.
+        depth = int(5-(1.4*self.size - self.win_condition))  # (depth) decyduje o glebokosci rekurencji algorytmu,
+        best_move = None                                 #  doswiadczalnie wybrane 5-(1.4*self.size - self.win_condition) wydaje sie najlepsze dla zoptymalizowania
+                                                         #  czasu oraz poziomu ruchow bota.
         for move in available_moves:
             self.tags[move[0]][move[1]] = 'o'
             move_value = self.minimax(depth, -INFINITY, INFINITY, False)
